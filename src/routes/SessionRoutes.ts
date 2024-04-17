@@ -7,7 +7,7 @@ const controller = new SessionController()
 
 router.get('/', (req: Request, res: Response) => {
   controller.getAllSessions().then(Sessions => {
-      console.log('All auteurs:', Sessions);
+      console.log('All sessions:', Sessions);
       res.status(200).json({Sessions});
   })
   .catch(error => {
@@ -18,7 +18,7 @@ router.get('/', (req: Request, res: Response) => {
 
 router.get('/:id', (req: Request, res: Response) => {
   controller.getSessionById(req.params.id).then(Session => {
-    console.log('auteur:', Session);
+    console.log('session:', Session);
     res.status(200).json({Session});
   })
   .catch(error => {
@@ -39,13 +39,13 @@ router.post('/', (req: Request, res: Response) => {
 
 router.put('/:id', (req: Request, res: Response) => {
   controller.updateSessionById(req.params.id, req.body as ISession)
-  res.send('Auteur mis à jour');
+  res.send('Session mis à jour');
 });
   
 
 router.delete('/:id', (req: Request, res: Response) => {
     controller.deleteSessionById(req.params.id).then(Session => {
-      res.status(200).send('Auteur supprimé')
+      res.status(200).send('Session supprimé')
     }).catch(error=>{
       console.log("Error",error);
     res.status(404).send('error');

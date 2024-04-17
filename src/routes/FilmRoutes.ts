@@ -7,7 +7,7 @@ const controller = new FilmController()
 
 router.get('/', (req: Request, res: Response) => {
   controller.getAllFilms().then(Films => {
-      console.log('All auteurs:', Films);
+      console.log('All films:', Films);
       res.status(200).json({Films});
   })
   .catch(error => {
@@ -18,7 +18,7 @@ router.get('/', (req: Request, res: Response) => {
 
 router.get('/:id', (req: Request, res: Response) => {
   controller.getFilmById(req.params.id).then(Film => {
-    console.log('auteur:', Film);
+    console.log('film:', Film);
     res.status(200).json({Film});
   })
   .catch(error => {
@@ -37,13 +37,13 @@ router.post('/', (req: Request, res: Response) => {
 
 router.put('/:id', (req: Request, res: Response) => {
   controller.updateFilmById(req.params.id, req.body as IFilm)
-  res.send('Auteur mis à jour');
+  res.send('Film mis à jour');
 });
   
 
 router.delete('/:id', (req: Request, res: Response) => {
     controller.deleteFilmById(req.params.id).then(Film => {
-      res.status(200).send('Auteur supprimé')
+      res.status(200).send('Film supprimé')
     }).catch(error=>{
       console.log("Error",error);
     res.status(404).send('error');
