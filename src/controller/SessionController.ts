@@ -3,7 +3,7 @@ import ISession from "../models/Session";
 import mongoose from "mongoose";
 
 export default class SessionController {
-    private model= mongoose.model('Session', SessionSchema);
+    private model= mongoose.model('session', SessionSchema);
 
     async getAllSessions() {
         try {

@@ -3,7 +3,7 @@ import IFilm from "../models/Film";
 import mongoose from "mongoose";
 
 export default class FilmController {
-    private model= mongoose.model('Film', FilmSchema);
+    private model= mongoose.model('film', FilmSchema);
 
     async getAllFilms() {
         try {

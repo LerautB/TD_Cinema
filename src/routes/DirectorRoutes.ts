@@ -7,7 +7,7 @@ const controller = new DirectorController()
 
 router.get('/', (req: Request, res: Response) => {
   controller.getAllDirectors().then(directors => {
-      console.log('All auteurs:', directors);
+      console.log('All directors:', directors);
       res.status(200).json({directors});
   })
   .catch(error => {
@@ -18,7 +18,7 @@ router.get('/', (req: Request, res: Response) => {
 
 router.get('/:id', (req: Request, res: Response) => {
   controller.getDirectorById(req.params.id).then(director => {
-    console.log('auteur:', director);
+    console.log('director:', director);
     res.status(200).json({director});
   })
   .catch(error => {
@@ -31,7 +31,7 @@ router.get('/:id', (req: Request, res: Response) => {
 
 router.post('/', (req: Request, res: Response) => {
   controller.addDirector(req.body).then(director =>{
-    res.status(201).send('Director ajouté');
+    res.status(201).send('Director added');
   }).catch(error => {
     console.log('Error', error);
   });   
@@ -39,13 +39,13 @@ router.post('/', (req: Request, res: Response) => {
 
 router.put('/:id', (req: Request, res: Response) => {
   controller.updateDirectorById(req.params.id, req.body as IDirector)
-  res.send('Auteur mis à jour');
+  res.send('Director updated');
 });
   
 
 router.delete('/:id', (req: Request, res: Response) => {
     controller.deleteDirectorById(req.params.id).then(director => {
-      res.status(200).send('Auteur supprimé')
+      res.status(200).send('Director deleted')
     }).catch(error=>{
       console.log("Error",error);
     res.status(404).send('error');
