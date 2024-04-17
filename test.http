@@ -1,12 +1,109 @@
-
-
+###
+### GET all directors
 GET http://localhost:3002/api/directors
-GET http://localhost:3002/api/films
-GET http://localhost:3002/api/sessions
+
+###
+### GET director by ID
+GET http://localhost:3002/api/directors/6620073b12a1634822365562
+
+###
+### ADD new director
+POST http://localhost:3002/api/directors
+Content-Type: application/json
+
+{
+  "name": "Henry Ferrary",
+  "birthdate": "1990-09-22",
+  "biography": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+}
+
+###
+### PUT update director by ID
+PUT http://localhost:3002/api/directors/662008a112a1634822365565
+Content-Type: application/json
+
+{
+  "name": "John Smith",
+  "birthdate": "1985-08-21",
+  "biography": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+}
+
+###
+### DELETE director by ID
+DELETE http://localhost:3002/api/directors/662008a112a1634822365565
+
+
 
 
 ###
+### GET all films
+GET http://localhost:3002/api/films
 
-POST http://localhost:3002/api/directors
-content-type: application/json
+###
+### GET film by ID
+GET http://localhost:3002/api/films/66200b4959e2b49f21654b2f
 
+###
+### POST new film
+POST http://localhost:3002/api/films
+Content-Type: application/json
+
+{
+  "title": "The Matrix",
+  "releaseYear": 1999,
+  "genre": "Science Fiction",
+  "directors": ["662008a112a1634822365565", "6620073b12a1634822365562"]
+}
+
+###
+### PUT update film by ID
+PUT http://localhost:3002/api/films/66200b4959e2b49f21654b2f
+Content-Type: application/json
+
+{
+  "title": "The Matrix Reloaded",
+  "releaseYear": 2003,
+  "genre": "Science Fiction",
+  "directors": ["614cf23b1f5f3be13c0a7862"]
+}
+
+###
+### DELETE film by ID
+DELETE http://localhost:3002/api/films/66200b4959e2b49f21654b2f
+
+
+###
+### GET all sessions
+GET http://localhost:3002/api/sessions
+
+###
+### GET session by ID
+GET http://localhost:3002/api/sessions/662008a112a1634822365565
+
+###
+### POST new session
+POST http://localhost:3002/api/sessions
+Content-Type: application/json
+
+{
+  "film": "614cf23b1f5f3be13c0a7861",
+  "date": "2024-05-01",
+  "time": "15:00",
+  "availableSeats": 100
+}
+
+###
+### PUT update session by ID
+PUT http://localhost:3002/api/sessions/662008a112a1634822365565
+Content-Type: application/json
+
+{
+  "film": "614cf23b1f5f3be13c0a7862",
+  "date": "2024-05-01",
+  "time": "18:00",
+  "availableSeats": 80
+}
+
+###
+### DELETE session by ID
+DELETE http://localhost:3002/api/sessions/662008a112a1634822365565
