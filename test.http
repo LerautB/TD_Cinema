@@ -1,0 +1,12 @@
+
+
+GET http://localhost:3002/api/directors
+GET http://localhost:3002/api/films
+GET http://localhost:3002/api/sessions
+
+
+###
+
+POST http://localhost:3002/api/directors
+content-type: application/json
+
